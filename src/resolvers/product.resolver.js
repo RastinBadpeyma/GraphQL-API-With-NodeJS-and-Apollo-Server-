@@ -42,6 +42,21 @@ module.exports = {
          } else {
             throw new Error('Product not found');
          }
+      },
+      updateProduct: (_, args) => {
+         const product = data.products.find((product) => product.id === args.id);
+
+         if (product) {
+            if (args.description !== undefined) {
+               product.description = args.description;
+            }
+            if (args.price !== undefined) {
+               product.price = args.price;
+            }
+            return product;
+         } else {
+            throw new Error('Product not found');
+         }
       }
    }
 };
