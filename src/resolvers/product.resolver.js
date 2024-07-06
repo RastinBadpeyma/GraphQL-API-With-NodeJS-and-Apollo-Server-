@@ -27,6 +27,21 @@ module.exports = {
 
          data.products.push(newProduct);
          return newProduct;
+      },
+      addNewProductReview: (_, args) => {
+         const product = data.products.find((product) => product.id === args.id);
+
+         if (product) {
+            const newReview = {
+               rating: args.rating,
+               comment: args.comment
+            };
+
+            product.reviews.push(newReview);
+            return newReview;
+         } else {
+            throw new Error('Product not found');
+         }
       }
    }
 };
