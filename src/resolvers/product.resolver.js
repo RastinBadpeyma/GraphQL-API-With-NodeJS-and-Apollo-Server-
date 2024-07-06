@@ -15,5 +15,18 @@ module.exports = {
          });
       }
       
+   },
+   Mutation: {
+      addNewProduct: (_, args) => {
+         const newProduct = {
+            id: args.id,
+            description: args.description,
+            price: args.price,
+            reviews: []
+         };
+
+         data.products.push(newProduct);
+         return newProduct;
+      }
    }
 };
