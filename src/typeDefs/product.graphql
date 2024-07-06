@@ -9,6 +9,7 @@ type Mutation {
    addNewProduct(id: ID! , description: String! , price: Float!): Product
    addNewProductReview(id: ID! , rating: Int! , comment: String!): Review
    updateProduct(id: ID!, description: String!, price: Float!): Product
+  deleteProduct(id: ID!): Product
 }
 
 

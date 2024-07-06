@@ -57,6 +57,16 @@ module.exports = {
          } else {
             throw new Error('Product not found');
          }
+      },
+      deleteProduct: (_, args) => {
+         const productToRemove = data.products.find(product => product.id === args.id);
+      
+         if (!productToRemove) {
+            throw new Error('Product not found');
+         }
+      
+         data.products = data.products.filter(product => product.id !== args.id);
+         return productToRemove;
       }
    }
 };
